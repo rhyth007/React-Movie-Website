@@ -4,7 +4,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 
-const API_KEY = `http://www.omdbapi.com/?apikey=e3150f0`;
+const API_KEY = `https://www.omdbapi.com/?apikey=e3150f0`;
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
 	useEffect(() => {
 		let timeout = setTimeout(() => {
 			getMovies(`${API_KEY}&s=${query}`);
-		},500);
+		}, 500);
 
 		return () => clearTimeout(timeout);
 	}, [query]);

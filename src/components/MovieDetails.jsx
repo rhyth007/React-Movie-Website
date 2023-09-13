@@ -1,8 +1,8 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const API_KEY = `http://www.omdbapi.com/?apikey=e3150f0`;
+const API_KEY = `https://www.omdbapi.com/?apikey=e3150f0`;
 
 const MovieDetails = () => {
 	const { id } = useParams();
@@ -13,10 +13,8 @@ const MovieDetails = () => {
 	const [movie, setMovie] = useState("");
 	const [isLoading, setIsLoading] = useState(true);
 
-
 	const getMovies = async (url) => {
-
-    setIsLoading(true);
+		setIsLoading(true);
 		try {
 			const res = await fetch(url);
 			const data = await res.json();
@@ -25,7 +23,7 @@ const MovieDetails = () => {
 			if (data.Response === "True") {
 				setIsLoading(false);
 				setMovie(data);
-			} 
+			}
 		} catch (err) {
 			console.log("ERROR " + err);
 		}
